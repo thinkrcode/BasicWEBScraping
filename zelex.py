@@ -1,6 +1,7 @@
 import os
 import requests
-# url_d, datainstall, showData_d, skipdata, CLI menu_d              "d = done"
+# My program running on smsonay.com and just get data.
+# I want update my project near.
 try:
         r = requests.get('https://www.smsonay.com')
         content = r.content.decode('utf-8')
