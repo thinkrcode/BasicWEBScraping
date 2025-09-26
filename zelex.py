@@ -1,14 +1,13 @@
 import os
 import requests
-# My program running on smsonay.com and just get data.
-# I want update my project near.
+# url_d, datainstall, showData_d, skipdata, CLI menu_d              "d = done"
 try:
         r = requests.get('https://www.smsonay.com')
         content = r.content.decode('utf-8')
         start_swith = '<h2 class="pt-10 mb-20 text-light">'
         end_swith= '</h2>'
         myword = 'SMS'
-        mylist = []
+        temp = []
 
         if r.status_code == 200:
                 print(f"Status: {r.status_code}, Your connection successfully completed.")
@@ -23,11 +22,10 @@ try:
         def getData():
             try:
                 temp = (content.split(start_swith, 1)[1])
-                mylist = (temp.split(end_swith,1)[0])
+                temp = (temp.split(end_swith,1)[0])
                 def createFile():
                     try:
-                        output = open('zelex_pt.txt','w')
-                        output.write(mylist)
+                        
                         os.system('mv zelex_pt.txt zelex')
                     except Exception as e:
                         raise Exception({e}, 'An error ocurred')
@@ -38,11 +36,13 @@ try:
 
         def showData():
             print(f"Data exporting on line.\n")
-            print(mylist)
-
+            print(temp)
 
         def readFile():
-            temp = open('zelex/zelex_pt.txt')
+            y = os.open(os.path.abspath('zelex/zelex_pt.txt'), os.O_RDONLY)
+            y = os.read(y, y+y)
+            print(y)
+
         getData()
         readFile()
 
