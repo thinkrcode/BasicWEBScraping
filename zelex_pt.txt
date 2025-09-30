@@ -1,1 +1,1 @@
-SMS Onay
+#this file is writing on program parsed_data
