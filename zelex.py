@@ -82,7 +82,7 @@ def showData():
     print(parsed_data)
 
 def readFile():
-    with open(FULL_PATH, 'r', encoding='utf-8') as f:
+    with open(FULL_PATH, 'r') as f:
         print(f.read())
 
 try: #main block
