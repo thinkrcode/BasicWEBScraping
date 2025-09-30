@@ -1,6 +1,5 @@
 import os
 import requests
-# url_d, datainstall, showData_d, skipdata, CLI menu_d              "d = done"
 
 # --- Configuration ---
 TARGET_URL = '' # first input
@@ -8,26 +7,15 @@ SEARCH_WORD = ''  # second input
 START_DELIMITER = '' #automation index
 END_DELIMITER = '' #automation index
 
-
-
+# --- file configs ---
 FILE_DIR = 'zelex'
 FILE_NAME = 'zelex_pt.txt'
 FULL_PATH = os.path.join(FILE_DIR, FILE_NAME)
-
 
 # --- Global State ---
 # Use global variables to share data between functions (carefully)
 global parsed_data
 temp = []
-
-#  ----- FIND End -----
-
-#control block
-
-#   <h2>selam</h2> her index numarasındaki elemanın for ile kontrolünü sağlayıp etiket mi diye o şekilde split et
-    
-
-# control end
 
 def siteStatus():
         if req.status_code == 200:
@@ -61,8 +49,6 @@ def findWord():
             END_DELIMITER -= 1
         parsed_data = content[START_DELIMITER:END_DELIMITER]
         print(parsed_data)
-
-        
 
     else:
         print(f"{SEARCH_WORD}, Not found.")
@@ -137,3 +123,6 @@ try: #main block
 
 except requests.exceptions.RequestException as e:
      print(f"{e}, An error ocurred.")
+except KeyboardInterrupt as ki:
+    print('\nQuitting...')
+    quit
