@@ -119,7 +119,7 @@ try: #main block
         match (usrch):
             case '1':
                 print("add a manual 'http://' or 'https://' and don't insert end '/'")
-                TARGET_URL = input('Which site will you get?')
+                TARGET_URL = input('Which site will you get?: ')
                 req = requests.get(TARGET_URL, timeout=10)
                 content = req.content.decode('utf-8')
             case '2':
